@@ -93,6 +93,59 @@
             <z-m>1.0437</z-m>
         </offsets>
     </model>
+    
+    <!--     Taxi Lights -->
+    <model>
+        <name>left-taxi</name>
+        <path>AI/Lights/procedural_light_nav_tail.xml</path>
+        <offsets>
+<x-m>-3.1614</x-m>
+<y-m>-0.8924</y-m>
+<z-m>1.5427</z-m>
+        </offsets>
+    </model>
+    <model>
+        <name>right-taxi</name>
+        <path>AI/Lights/procedural_light_nav_tail.xml</path>
+        <offsets>
+<x-m>-3.1614</x-m>
+<y-m>0.8924</y-m>
+<z-m>1.5427</z-m>
+        </offsets>
+    </model>
+    <model>
+        <name>lower-taxi</name>
+        <path>AI/Lights/procedural_light_nav_tail.xml</path>
+        <offsets>
+<x-m>-11.0287</x-m>
+<y-m>0.0</y-m>
+<z-m>0.5973</z-m>
+        </offsets>
+    </model>
+    <animation>
+        <name>taxiGrouped</name>
+        <object-name>left-taxi</object-name>
+        <object-name>right-taxi</object-name>
+        <object-name>lower-taxi</object-name>
+    </animation>
+    <animation>
+        <type>select</type>
+        <object-name>taxiGrouped</object-name>
+        <nopreview/>
+        <condition>
+            <and>
+                <greater-than>
+                    <property>velocities/true-airspeed-kt</property>
+                    <value>0</value>
+                </greater-than>
+                <less-than>
+                    <property>velocities/true-airspeed-kt</property>
+                    <value>128</value>
+                </less-than>
+            </and>
+        </condition>
+    </animation>    
+    
     <!-- Group Lights for Shared Animations -->
     <animation>
         <name>StaticGrouped</name>
